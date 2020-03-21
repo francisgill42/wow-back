@@ -52,9 +52,7 @@ class BrandController extends Controller
             return response()->json([
                 'response_status'=>true,
                 'message' => 'record has been created',
-                'new_record' => $brand
-
-                                 
+                'new_record' => $brand                                 
             ]);
     }
 

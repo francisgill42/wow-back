@@ -6,6 +6,7 @@ use App\Album;
 use App\Brand;
 use App\Category;
 use App\SubCategory;
+use App\Product;
 use Illuminate\Http\Request;
 
 
@@ -86,6 +87,18 @@ public function get_data_for_albums($c_id){
         'brands' => $brands,
         'sub_categories' => $subcategories
         ]);
+
+}
+
+public function get_products_by_album_id($id){
+
+
+    return $products = Product::where('collection_id',$id)->get();
+
+    // return response()->json([
+    //     'brands' => $brands,
+    //     'sub_categories' => $subcategories
+    //     ]);
 
 }
 

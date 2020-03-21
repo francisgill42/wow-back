@@ -9,11 +9,15 @@ Route::get('me', 'AuthController@me');
 Route::post('logout', 'AuthController@logout');
 
 
+Route::resource('product','ProductController');
+
 Route::resource('categories','CategoryController');
 Route::resource('subcategories','SubCategoryController');
 Route::resource('brands','BrandController');
 Route::resource('albums','AlbumController');
 Route::post('albums/{album_id}','AlbumController@update');
+Route::get('albums/{album_id}/products','AlbumController@get_products_by_album_id');
+
 
 
 Route::get('get_data_for_albums/{cat_id}','AlbumController@get_data_for_albums');
