@@ -15,7 +15,7 @@ Instructions
 
 6 php artisan db:seed
 
-finaly run (php artisan serve)
+
 
 copy address http://localhost/wow-back/api/login (only used in postman or api tester)
 
