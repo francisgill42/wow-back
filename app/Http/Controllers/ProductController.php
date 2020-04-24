@@ -55,7 +55,7 @@ class ProductController extends Controller
                 $product = Product::create($arr);
 
                 return response()->json([
-                    'response_status' => false,
+                    'response_status' => true,
                     'message' => 'record has been inserted',
                     'new_record' => Product::find($product->id),
                 ]);
@@ -83,7 +83,7 @@ class ProductController extends Controller
                 $product = Product::where('id',$id)->update($arr);
 
                 return response()->json([
-                    'response_status' => false,
+                    'response_status' => true,
                     'message' => 'record has been update',
                     'updated_record' => Product::find($id),
                 ]);

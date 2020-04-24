@@ -10,10 +10,7 @@ use Log;
 
 class SubCategoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+  
     public function index()
     {
         $categories = Category::orderBy('id','desc')->get();

@@ -10,10 +10,7 @@ use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth:api');
-    }
+   
     public function index()
     {
         $categories = Category::orderBy('id','desc')->select('id','category_name')->get();
