@@ -7,32 +7,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
                 $product_images =[];
@@ -49,7 +23,8 @@ class ProductController extends Controller
                     'product_title' => $request->product_title,
                     'product_price' => $request->product_price,
                     'product_description' => $request->product_description,
-                    'product_images' => $product_images
+                    'product_images' => $product_images,
+                    'url' => $request->product_url 
                 ];
                
                 $product = Product::create($arr);
@@ -77,7 +52,8 @@ class ProductController extends Controller
                     'product_title' => $request->product_title,
                     'product_price' => $request->product_price,
                     'product_description' => $request->product_description,
-                   'product_images' => $product_images
+                    'product_images' => $product_images,
+                    'url' => $request->product_url 
                 ];
                
                 $product = Product::where('id',$id)->update($arr);
@@ -89,12 +65,6 @@ class ProductController extends Controller
                 ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Product  $product
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         return (Product::find($id)->delete()) 

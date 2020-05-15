@@ -21,6 +21,7 @@ class CreateProductTable extends Migration
                     $table->string('product_title');
                     $table->decimal('product_price', 10, 2)->default(0);
                     $table->longText('product_description');
+                    $table->string('url')->nullable();
                     $table->longText('product_images');
                     $table->timestamps();
         });

@@ -38,11 +38,11 @@ $request->album_image->move(public_path('uploads/album_images/'),$album_image);
 $album_image = asset('uploads/album_images/' . $album_image);	
 }
 $new_record = Album::create([
-'album_name' => $request->album_name,
-'album_image' => $album_image,
-'category_id' => $request->category_id,
-'sub_category_id' => $request->sub_category_id,
-'brand_id' => $request->brand_id,
+    'album_name' => $request->album_name,
+    'album_image' => $album_image,
+    'category_id' => $request->category_id,
+    'sub_category_id' => $request->sub_category_id,
+    'brand_id' => $request->brand_id,
 ]);
 return response()->json([
 'response_status'=>true,
