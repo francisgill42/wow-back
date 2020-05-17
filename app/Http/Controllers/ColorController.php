@@ -17,7 +17,10 @@ class ColorController extends Controller
 
     public function store(Request $request)
     {
-        $new_record = Color::create(['color_name' => $request->color_name]);
+        $new_record = Color::create([
+            'color_name' => $request->color_name,
+            'color_code' => $request->color_code,
+        ]);
          return response()->json([
                 'response_status'=>true,
                 'message' => 'record has been created',
@@ -32,7 +35,8 @@ class ColorController extends Controller
 
         $updated_record = Color::where('id',$color_id)
                                 ->update([
-                                    'color_name' => $request->color_name
+                                    'color_name' => $request->color_name,
+                                    'color_code' => $request->color_code
                                 ]);
 
          return response()->json([
