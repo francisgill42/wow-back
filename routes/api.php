@@ -25,3 +25,8 @@ Route::get('albums/{album_id}/products','AlbumController@get_products_by_album_i
 
 
 Route::get('get_data_for_albums/{cat_id}','AlbumController@get_data_for_albums');
+
+Route::get('get_data_for_level/{id}','LevelController@get_data_for_level');
+
+Route::resource('level','LevelController');
+Route::resource('videos','VideoController');
