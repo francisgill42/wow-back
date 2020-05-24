@@ -8,7 +8,7 @@ class Subject extends Model
 {
     protected $guarded = [];
 
-    public function levels()
+    public function level()
     {
         return $this->belongsTo('App\Level');
     }

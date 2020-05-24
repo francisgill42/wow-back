@@ -26,70 +26,35 @@ class LevelController extends Controller
         ]);
     
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $new_record = Level::create(['level' => $request->level]);
+        return response()->json([
+               'response_status'=>true,
+               'message' => 'record has been created',
+               'new_record' => Level::find($new_record->id)
+           ]);
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Level $level)
+    public function update(Request $request, $id)
     {
-        //
+        $updated_record = Level::where('id',$id)
+        ->update([
+        'level' => $request->level
+        ]);
+
+        return response()->json([
+        'response_status'=>true,
+        'message' => 'record has been updated',
+        'updated_record' => Level::find($id)
+        ]); 
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Level $level)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Level $level)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Level $level)
-    {
-        //
+        return (Level::find($id)->delete()) 
+        ? [ 'response_status' => true,  'message' => 'record has been deleted' ] 
+        : [ 'response_status' => false, 'message' => 'record cannot delete' ];
     }
 }

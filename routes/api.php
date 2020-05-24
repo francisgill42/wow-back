@@ -22,11 +22,11 @@ Route::resource('albums','AlbumController');
 Route::post('albums/{album_id}','AlbumController@update');
 Route::get('albums/{album_id}/products','AlbumController@get_products_by_album_id');
 
-
-
 Route::get('get_data_for_albums/{cat_id}','AlbumController@get_data_for_albums');
 
+Route::resource('levels','LevelController');
 Route::get('get_data_for_level/{id}','LevelController@get_data_for_level');
 
-Route::resource('level','LevelController');
+
 Route::resource('videos','VideoController');
+Route::resource('subjects','SubjectController');
