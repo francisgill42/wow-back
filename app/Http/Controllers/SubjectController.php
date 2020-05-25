@@ -15,11 +15,29 @@ class SubjectController extends Controller
      */
     public function index()
     {
+        $arr = [];
         $subjects = Subject::all();
         foreach($subjects as $subject){
             $subject->level = $subject->level;
-        }
-        return $subjects;
+            $arr[$subject->level->level][] = $subject; 
+            
+        } 
+        return $arr;
+
+
+    }
+
+    public function groupBySubject()
+    {
+        $arr = [];
+        $subjects = Subject::all();
+        foreach($subjects as $subject){
+            $subject->level = $subject->level;
+            $arr[$subject->level->level][] = $subject; 
+            
+        } 
+        return $arr;
+
     }
 
     public function store(Request $request)
@@ -57,12 +75,7 @@ class SubjectController extends Controller
         ]); 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Level  $level
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         return (Subject::find($id)->delete()) 

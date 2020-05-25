@@ -30,3 +30,4 @@ Route::get('get_data_for_level/{id}','LevelController@get_data_for_level');
 
 Route::resource('videos','VideoController');
 Route::resource('subjects','SubjectController');
+Route::get('groupBySubject','SubjectController@groupBySubject');
